@@ -2,7 +2,7 @@
 @section('content')
     <div class="container">
         <div class="row">
-            <div class="col-md-6 offset-md-3">
+            <div class="col-md-12">
                 <h2>Create Task</h2>
                 <form action="{{route('tasks.store')}}" method="POST" enctype="multipart/form-data">
                     @csrf

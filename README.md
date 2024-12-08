@@ -87,7 +87,61 @@ php artisan make:controller TaskController --resource
 
 ---
 
+
 ## **5. Implement CRUD Operations**
+
+Here's the requested structure represented in a graph and the content of `main.blade.php`:
+
+---
+
+### **Folder and File Structure (Graph Representation)**
+
+```
+resources
+└── views
+    └── frontend
+        ├── tasks
+        │   ├── create.blade.php
+        │   ├── index.blade.php
+        │   ├── edit.blade.php
+        │   └── show.blade.php
+        └── layouts
+            ├── header.blade.php
+            ├── navbar.blade.php
+            ├── sidebar.blade.php
+            ├── main.blade.php
+            └── footer.blade.php
+```
+
+---
+
+### **`main.blade.php` Content**
+
+```blade
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    @include('frontend.layouts.header')
+</head>
+<body>
+    @include('frontend.layouts.navbar')
+    <div class="container">
+        <div class="row">
+            <div class="col-md-3">
+                @include('frontend.layouts.sidebar')
+            </div>
+            <div class="col-md-9">
+                @yield('content')
+            </div>
+        </div>
+    </div>
+    @include('frontend.layouts.footer')
+</body>
+</html>
+```
+
+---
+
 
 ### **A. Create (Add a New Task)**
 
@@ -106,9 +160,9 @@ public function store(Request $request)
 }
 ```
 
-#### Create Form View: `resources/views/tasks/create.blade.php`
+#### Create Form View: `resources/views/frontend/tasks/create.blade.php`
 ```blade
-@extends('frontned.inc.main')
+@extends('frontned.layouts.main')
 
 @section('content')
 <div class="container">
@@ -142,9 +196,9 @@ public function index()
 }
 ```
 
-#### Index View: `resources/views/tasks/index.blade.php`
+#### Index View: `resources/views/frontend/tasks/index.blade.php`
 ```blade
-@extends('frontned.inc.main')
+@extends('frontned.layouts.main')
 
 @section('content')
 <div class="container">
@@ -180,9 +234,9 @@ public function update(Request $request, Task $task)
 }
 ```
 
-#### Edit Form View: `resources/views/tasks/edit.blade.php`
+#### Edit Form View: `resources/views/frontend/tasks/edit.blade.php`
 ```blade
-@extends('frontned.inc.main')
+@extends('frontned.layouts.main')
 
 @section('content')
 <div class="container">

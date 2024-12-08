@@ -69,8 +69,10 @@ Open `routes/web.php` and register the routes:
 use App\Http\Controllers\TaskController;
 
 Route::resource('tasks', TaskController::class);
+```
 
 OR
+```php
 Route::resource('tasks','App\Http\Controllers\TaskController');
 ```
 
